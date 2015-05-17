@@ -42,7 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        
         // set up star in center
         star.position = gravField.position
-        star.setScale(0.1)
+        star.setScale(0.08)
         star.name = "Star"
         star.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Sun"), size: star.size)
         if let physics = star.physicsBody {
