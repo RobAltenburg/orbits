@@ -15,13 +15,19 @@ class EndScene: SKScene {
         super.init(size: size)
         self.backgroundColor = NSColor.blackColor()
         
-        var replayButton = SKLabelNode(text: "Replay Game")
+        
+        let label = SKLabelNode(text: "Game Over")
+        label.fontSize = 40
+        label.position = CGPoint(x: size.width/2, y: size.height * 0.75)
+        self.addChild(label)
+        
+        let replayButton = SKLabelNode(text: "Replay Game")
         replayButton.fontSize = 40
         replayButton.fontColor = SKColor.cyanColor()
         replayButton.position = CGPointMake(self.size.width/2, self.size.height * 0.25)
         replayButton.name = "replay"
         
-        self.addChild(replayButton)
+        self.runAction(SKAction.waitForDuration(1), completion: {self.addChild(replayButton)})
     }
 
     required init?(coder aDecoder: NSCoder) {

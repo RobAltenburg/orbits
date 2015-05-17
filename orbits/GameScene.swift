@@ -29,17 +29,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         
-        //println("size: \(self.size)")
+        //set up physics
         physicsWorld.contactDelegate = self
+        let gravField = SKFieldNode.radialGravityField(); // Create grav field
+        gravField.position = CGPoint(x: size.width/2.0, y: size.height/2)
+        addChild(gravField); // Add to world
         
         // setting graphics
         self.backgroundColor = NSColor.blackColor()
         
-        //set up gravity
-        let gravField = SKFieldNode.radialGravityField(); // Create grav field
-        gravField.position = CGPoint(x: size.width/2.0, y: size.height/2)
-        addChild(gravField); // Add to world
-       
         // set up star in center
         star.position = gravField.position
         star.setScale(0.08)
@@ -51,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         self.addChild(star)
         
-        // place the ship(s)  TODO: smart placement for mutiple ships
+        // place the ships
         ship[0].position = CGPoint(x: size.width * 0.25, y:size.height * 0.5)
         ship[0].physicsBody?.velocity = CGVectorMake(0, 100)
         self.addChild(ship[0])
@@ -62,12 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
    
     func endGame() {
-        
-        let label = SKLabelNode()
-        label.text = "Game Over"
-        label.fontSize = 40
-        label.position = CGPoint(x: size.width/2, y: size.height * 0.75)
-        self.addChild(label)
+       
       
         self.runAction(SKAction.waitForDuration(4), completion: {
             let scene = EndScene(size: self.size)
@@ -123,7 +116,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 actionBody = contact.bodyA
                 otherBody = contact.bodyB
             }
-            
             
             explosion(actionBody.node!.position)
             actionBody.node!.removeFromParent()
