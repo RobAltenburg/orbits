@@ -31,7 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		513C683E1B06DFC2004E9554 /* EndScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndScene.swift; path = orbits.xcodeproj/../EndScene.swift; sourceTree = SOURCE_ROOT; };
+		513C683E1B06DFC2004E9554 /* EndScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndScene.swift; path = orbits/EndScene.swift; sourceTree = SOURCE_ROOT; };
 		514D00041B03FD8300F53F5D /* orbits.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = orbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		514D00081B03FD8300F53F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		514D00091B03FD8300F53F5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 				513C683E1B06DFC2004E9554 /* EndScene.swift */,
 				514D00091B03FD8300F53F5D /* AppDelegate.swift */,
 				514D000B1B03FD8300F53F5D /* GameScene.swift */,
-				517721C31B07E88B00E5F248 /* Ship.swift */,
 				517721C51B07E8FF00E5F248 /* Missle.swift */,
+				517721C31B07E88B00E5F248 /* Ship.swift */,
 				514D000D1B03FD8300F53F5D /* GameScene.sks */,
 				514D000F1B03FD8300F53F5D /* Images.xcassets */,
 				51F0350A1B057E4F008C119E /* explosion.sks */,

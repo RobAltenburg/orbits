@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Robert Altenburg. All rights reserved.
 //
 
-
 import Cocoa
 import SpriteKit
 
