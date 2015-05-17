@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		513C683F1B06DFC2004E9554 /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 513C683E1B06DFC2004E9554 /* EndScene.swift */; };
 		514D000A1B03FD8300F53F5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D00091B03FD8300F53F5D /* AppDelegate.swift */; };
 		514D000C1B03FD8300F53F5D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D000B1B03FD8300F53F5D /* GameScene.swift */; };
 		514D000E1B03FD8300F53F5D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 514D000D1B03FD8300F53F5D /* GameScene.sks */; };
 		514D00101B03FD8300F53F5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514D000F1B03FD8300F53F5D /* Images.xcassets */; };
 		514D00131B03FD8300F53F5D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 514D00111B03FD8300F53F5D /* MainMenu.xib */; };
 		514D001F1B03FD8400F53F5D /* orbitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514D001E1B03FD8400F53F5D /* orbitsTests.swift */; };
+		517721C41B07E88B00E5F248 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517721C31B07E88B00E5F248 /* Ship.swift */; };
+		517721C61B07E8FF00E5F248 /* Missle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517721C51B07E8FF00E5F248 /* Missle.swift */; };
+		51F0350C1B057E4F008C119E /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 51F0350A1B057E4F008C119E /* explosion.sks */; };
+		51F0350D1B057E4F008C119E /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 51F0350B1B057E4F008C119E /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		513C683E1B06DFC2004E9554 /* EndScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EndScene.swift; path = orbits.xcodeproj/../EndScene.swift; sourceTree = SOURCE_ROOT; };
 		514D00041B03FD8300F53F5D /* orbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = orbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		514D00081B03FD8300F53F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		514D00091B03FD8300F53F5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +42,10 @@
 		514D00181B03FD8400F53F5D /* orbitsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = orbitsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		514D001D1B03FD8400F53F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		514D001E1B03FD8400F53F5D /* orbitsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orbitsTests.swift; sourceTree = "<group>"; };
+		517721C31B07E88B00E5F248 /* Ship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		517721C51B07E8FF00E5F248 /* Missle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Missle.swift; sourceTree = "<group>"; };
+		51F0350A1B057E4F008C119E /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
+		51F0350B1B057E4F008C119E /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +78,15 @@
 		514D00061B03FD8300F53F5D /* orbits */ = {
 			isa = PBXGroup;
 			children = (
+				513C683E1B06DFC2004E9554 /* EndScene.swift */,
 				514D00091B03FD8300F53F5D /* AppDelegate.swift */,
 				514D000B1B03FD8300F53F5D /* GameScene.swift */,
+				517721C31B07E88B00E5F248 /* Ship.swift */,
+				517721C51B07E8FF00E5F248 /* Missle.swift */,
 				514D000D1B03FD8300F53F5D /* GameScene.sks */,
 				514D000F1B03FD8300F53F5D /* Images.xcassets */,
+				51F0350A1B057E4F008C119E /* explosion.sks */,
+				51F0350B1B057E4F008C119E /* spark.png */,
 				514D00111B03FD8300F53F5D /* MainMenu.xib */,
 				514D00071B03FD8300F53F5D /* Supporting Files */,
 			);
@@ -192,7 +207,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F0350D1B057E4F008C119E /* spark.png in Resources */,
 				514D000E1B03FD8300F53F5D /* GameScene.sks in Resources */,
+				51F0350C1B057E4F008C119E /* explosion.sks in Resources */,
 				514D00101B03FD8300F53F5D /* Images.xcassets in Resources */,
 				514D00131B03FD8300F53F5D /* MainMenu.xib in Resources */,
 			);
@@ -212,6 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				517721C61B07E8FF00E5F248 /* Missle.swift in Sources */,
+				513C683F1B06DFC2004E9554 /* EndScene.swift in Sources */,
+				517721C41B07E88B00E5F248 /* Ship.swift in Sources */,
 				514D000C1B03FD8300F53F5D /* GameScene.swift in Sources */,
 				514D000A1B03FD8300F53F5D /* AppDelegate.swift in Sources */,
 			);
@@ -331,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = orbits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -342,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = orbits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -395,6 +417,7 @@
 				514D00241B03FD8400F53F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		514D00251B03FD8400F53F5D /* Build configuration list for PBXNativeTarget "orbitsTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +426,7 @@
 				514D00271B03FD8400F53F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		514DFFFF1B03FD8300F53F5D /* Build configuration list for PBXProject "orbits" */ = {
 			isa = XCConfigurationList;
