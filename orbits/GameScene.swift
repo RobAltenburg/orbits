@@ -38,15 +38,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // setting graphics
         self.backgroundColor = NSColor.blackColor()
         
-        // set up star field
+        // set up star field with stars of different sizes
         for i in 1...100 {
-            var c = SKShapeNode(circleOfRadius: 0.5)
+            var c = SKShapeNode(circleOfRadius: (CGFloat(random()%10)+0.01) / 70.0)
             c.strokeColor = SKColor.whiteColor()
             c.position = CGPoint(x: random()%Int(self.size.width),
                 y: random()%Int(self.size.height))
             self.addChild(c)
-            
         }
+
+       
         
         // set up star in center
         star.position = gravField.position
