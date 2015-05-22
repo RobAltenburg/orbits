@@ -68,6 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ship[1].position = CGPoint(x: size.width * 0.75, y:size.height * 0.5)
         ship[1].physicsBody?.velocity = CGVectorMake(0, -100)
         self.addChild(ship[1])
+        
     }
    
     func endGame() {
@@ -191,8 +192,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Called before each frame is rendered */
         
         for s in ship {
-            screenWrap(ship[0])
+            screenWrap(s)
         }
+        for m in missle {
+            //Turn the missles into the direction of travel
+            m.zRotation = CGFloat(M_2_PI - M_PI/4) - atan2(m.physicsBody!.velocity.dx , m.physicsBody!.velocity.dy)
+            //Don't wrap missles unless they have a lifespan screenWrap(m)
+            //TODO: remove missle from the array when they leave screen
+        }
+        
         
         
     }
