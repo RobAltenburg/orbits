@@ -128,7 +128,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 actionBody = contact.bodyA
                 otherBody = contact.bodyB
             }
-            
+           
             explosion(actionBody.node!.position)
             actionBody.node!.removeFromParent()
             otherBody.node!.removeFromParent()

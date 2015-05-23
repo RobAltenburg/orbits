@@ -14,7 +14,12 @@ class Ship : SKSpriteNode {
     var controlRight:UInt16?
     var controlThrust:UInt16?
     var controlFire:UInt16?
+    var canFire = true
     
+    override func removeFromParent() {
+        canFire = false
+        super.removeFromParent()
+    }
     
     init(imageNamed: String, name: String, controlLeft: UInt16, controlRight: UInt16,
         controlThrust: UInt16, controlFire:UInt16) {
@@ -60,21 +65,22 @@ class Ship : SKSpriteNode {
     // F
     func fire(scene: SKScene, inout missle: [Missle]) {
         
-        let angle = self.zRotation + CGFloat(M_PI_2)
-        let x = self.position.x + cos(angle) * 50
-        let y = self.position.y + sin(angle) * 50
+        if canFire {
+            let angle = self.zRotation + CGFloat(M_PI_2)
+            let x = self.position.x + cos(angle) * 50
+            let y = self.position.y + sin(angle) * 50
         
-        //println("Angle: \((angle / 3.14) * 180 )")
-        let dx = cos(angle) * 250
-        let dy = sin(angle) * 250
+            //println("Angle: \((angle / 3.14) * 180 )")
+            let dx = cos(angle) * 250
+            let dy = sin(angle) * 250
         
-        missle.append(Missle())
-        missle.last!.position = CGPoint(x:x, y:y)
-        missle.last!.zRotation = self.zRotation
-        //s.position
-        missle.last!.physicsBody!.velocity = CGVector(dx: dx, dy: dy)
-        scene.addChild(missle.last!)
+            missle.append(Missle())
+            missle.last!.position = CGPoint(x:x, y:y)
+            missle.last!.zRotation = self.zRotation
+            //s.position
+            missle.last!.physicsBody!.velocity = CGVector(dx: dx, dy: dy)
+            scene.addChild(missle.last!)
         
-    }
+        }}
 }
 
