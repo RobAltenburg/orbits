@@ -20,7 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let star = SKSpriteNode(imageNamed:"Sun")
     
-    let ship = [Ship(imageNamed: "Spaceship", name: "Player One", controlLeft: 123, controlRight: 124, controlThrust: 126, controlFire: 49),
+    let ship = [Ship(imageNamed: "Spaceship", name: "Player One", controlLeft: 123, controlRight: 124, controlThrust: 126, controlFire: 125),
     Ship(imageNamed: "Ship2", name: "Player Two", controlLeft: 0, controlRight: 2,
         controlThrust: 13, controlFire: 1)]
     
@@ -167,9 +167,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } /*else {
                 println("Key: \(theEvent.keyCode)")
             }*/
-            
+
         }
-        
+       
+       println("Key: \(theEvent.keyCode)")
     }
    
     func screenWrap(node:SKSpriteNode)->Void {
