@@ -39,8 +39,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.backgroundColor = NSColor.blackColor()
         
         // set up star field with stars of different sizes
-        for i in 1...100 {
-            var c = SKShapeNode(circleOfRadius: (CGFloat(random()%10)+0.01) / 70.0)
+        for _ in 1...100 {
+            let c = SKShapeNode(circleOfRadius: (CGFloat(random()%10)+0.01) / 70.0)
             c.strokeColor = SKColor.whiteColor()
             c.position = CGPoint(x: random()%Int(self.size.width),
                 y: random()%Int(self.size.height))
@@ -135,18 +135,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             endGame()
 
         default:
-            println("Uncaught contact made: \(contactMask)")
+            print("Uncaught contact made: \(contactMask)")
             return
             
         }
     }
     
     func explosion(pos: CGPoint) {
-        var emitterNode = SKEmitterNode(fileNamed: "explosion.sks")
-        emitterNode.particlePosition = pos
-        self.addChild(emitterNode)
+        let emitterNode = SKEmitterNode(fileNamed: "explosion.sks")
+        emitterNode!.particlePosition = pos
+        self.addChild(emitterNode!)
         // Don't forget to remove the emitter node after the explosion
-        self.runAction(SKAction.waitForDuration(2), completion: { emitterNode.removeFromParent() })
+        self.runAction(SKAction.waitForDuration(2), completion: { emitterNode!.removeFromParent() })
         
     }
     
@@ -170,7 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         }
        
-       println("Key: \(theEvent.keyCode)")
+       print("Key: \(theEvent.keyCode)")
     }
    
     func screenWrap(node:SKSpriteNode)->Void {

@@ -53,14 +53,14 @@ class Ship : SKSpriteNode {
     
     func thrust () -> Void {
         let angle = zRotation + CGFloat(M_PI_2)
-        physicsBody!.applyImpulse(CGVectorMake(1000 * cos(angle), 1000 * sin(angle)))
+        physicsBody!.applyImpulse(CGVectorMake(100000 * cos(angle), 1000 * sin(angle)))
     }
     
     func left () -> Void {
-        physicsBody!.applyAngularImpulse(0.01)
+        physicsBody!.applyAngularImpulse(10.0)
     }
     func right () -> Void {
-        physicsBody!.applyAngularImpulse(-0.01)
+        physicsBody!.applyAngularImpulse(-10.0)
     }
     // F
     func fire(scene: SKScene, inout missle: [Missle]) {
