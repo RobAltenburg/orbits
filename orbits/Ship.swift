@@ -29,7 +29,7 @@ class Ship : SKSpriteNode {
         self.controlFire = controlFire //49 TODO: Set up missle firing
         let texture = SKTexture(imageNamed: imageNamed)
 
-        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        super.init(texture: texture, color: SKColor.clear, size: texture.size())
         self.name = name
         self.setScale(0.1)
         
@@ -40,7 +40,7 @@ class Ship : SKSpriteNode {
             p.collisionBitMask = 0
             p.affectedByGravity = false
             p.allowsRotation = true
-            p.dynamic = true;
+            p.isDynamic = true;
             p.linearDamping = 0.00
             p.angularDamping = 0.00
             p.mass = 10000.0
@@ -53,7 +53,7 @@ class Ship : SKSpriteNode {
     
     func thrust () -> Void {
         let angle = zRotation + CGFloat(M_PI_2)
-        physicsBody!.applyImpulse(CGVectorMake(100000 * cos(angle), 1000 * sin(angle)))
+        physicsBody!.applyImpulse(CGVector(dx: 100000 * cos(angle), dy: 1000 * sin(angle)))
     }
     
     func left () -> Void {
@@ -63,7 +63,7 @@ class Ship : SKSpriteNode {
         physicsBody!.applyAngularImpulse(-10.0)
     }
     // F
-    func fire(scene: SKScene, inout missle: [Missle]) {
+    func fire(_ scene: SKScene, missle: inout [Missle]) {
         
         if canFire {
             let angle = self.zRotation + CGFloat(M_PI_2)

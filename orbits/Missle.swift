@@ -13,7 +13,7 @@ class Missle: SKSpriteNode {
     init() {
         let texture = SKTexture(imageNamed: "Missle")
     
-        super.init(texture: texture, color: SKColor.clearColor(), size: texture.size())
+        super.init(texture: texture, color: SKColor.clear, size: texture.size())
         physicsBody = SKPhysicsBody(texture: texture, size: self.size)
         self.setScale(0.02)
         self.name = "Missle"
@@ -24,7 +24,7 @@ class Missle: SKSpriteNode {
             p.collisionBitMask = 0
             p.affectedByGravity = false
             p.allowsRotation = true
-            p.dynamic = true;
+            p.isDynamic = true;
             p.linearDamping = 0.00
             p.angularDamping = 0.00
             p.mass = 100.0

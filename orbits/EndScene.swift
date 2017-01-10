@@ -15,7 +15,7 @@ class EndScene: SKScene {
 
     override init(size: CGSize) {
         super.init(size: size)
-        self.backgroundColor = NSColor.blackColor()
+        self.backgroundColor = NSColor.black
         
         
         let label = SKLabelNode(text: "Game Over")
@@ -26,8 +26,8 @@ class EndScene: SKScene {
        
         //let replayButton = SKLabelNode(text: "Replay Game")
         replayButton.fontSize = 40
-        replayButton.fontColor = SKColor.cyanColor()
-        replayButton.position = CGPointMake(self.size.width/2, self.size.height * 0.25)
+        replayButton.fontColor = SKColor.cyan
+        replayButton.position = CGPoint(x: self.size.width/2, y: self.size.height * 0.25)
         replayButton.name = "replay"
         
        
@@ -37,7 +37,7 @@ class EndScene: SKScene {
         let rect = SKShapeNode(rect: CGRect(x: rx, y: ry, width: 240, height: 50 ))
         
         
-        self.runAction(SKAction.waitForDuration(1), completion: {
+        self.run(SKAction.wait(forDuration: 1), completion: {
                 self.addChild(self.replayButton)
                 self.addChild(rect)
         })
@@ -48,8 +48,8 @@ class EndScene: SKScene {
     }
     
     
-    override func mouseDown(theEvent: NSEvent) {
+    override func mouseDown(with theEvent: NSEvent) {
         
         let scene = GameScene(size: self.size)
-        self.view?.presentScene(scene, transition: SKTransition.crossFadeWithDuration(1)) }
+        self.view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 1)) }
 }

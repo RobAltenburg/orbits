@@ -27,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var missle = [Missle]()
     
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         //set up physics
         physicsWorld.contactDelegate = self
@@ -36,14 +36,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(gravField); // Add to world
         
         // setting graphics
-        self.backgroundColor = NSColor.blackColor()
+        self.backgroundColor = NSColor.black
         
         // set up star field with stars of different sizes
         for _ in 1...100 {
-            let c = SKShapeNode(circleOfRadius: (CGFloat(random()%10)+0.01) / 70.0)
-            c.strokeColor = SKColor.whiteColor()
-            c.position = CGPoint(x: random()%Int(self.size.width),
-                y: random()%Int(self.size.height))
+            let c = SKShapeNode(circleOfRadius: (CGFloat(arc4random_uniform(10)) / 70.0))
+            c.strokeColor = SKColor.white
+            c.position = CGPoint(x: CGFloat(arc4random_uniform(UInt32(self.size.width))),
+                y: CGFloat(arc4random_uniform(UInt32(self.size.height))))
             self.addChild(c)
         }
 
@@ -55,18 +55,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         star.name = "Star"
         star.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "Sun"), size: star.size)
         if let physics = star.physicsBody {
-            physics.dynamic = false
+            physics.isDynamic = false
             physics.categoryBitMask = BodyType.star.rawValue
         }
         self.addChild(star)
         
         // place the ships
         ship[0].position = CGPoint(x: size.width * 0.25, y:size.height * 0.5)
-        ship[0].physicsBody?.velocity = CGVectorMake(0, 100)
+        ship[0].physicsBody?.velocity = CGVector(dx: 0, dy: 100)
         self.addChild(ship[0])
         
         ship[1].position = CGPoint(x: size.width * 0.75, y:size.height * 0.5)
-        ship[1].physicsBody?.velocity = CGVectorMake(0, -100)
+        ship[1].physicsBody?.velocity = CGVector(dx: 0, dy: -100)
         self.addChild(ship[1])
         
     }
@@ -74,14 +74,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func endGame() {
        
       
-        self.runAction(SKAction.waitForDuration(4), completion: {
+        self.run(SKAction.wait(forDuration: 4), completion: {
             let scene = EndScene(size: self.size)
-            self.view?.presentScene(scene, transition: SKTransition.crossFadeWithDuration(2))
+            self.view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 2))
         })
             
     }
     
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         var actionBody:SKPhysicsBody
@@ -141,17 +141,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func explosion(pos: CGPoint) {
+    func explosion(_ pos: CGPoint) {
         let emitterNode = SKEmitterNode(fileNamed: "explosion.sks")
         emitterNode!.particlePosition = pos
         self.addChild(emitterNode!)
         // Don't forget to remove the emitter node after the explosion
-        self.runAction(SKAction.waitForDuration(2), completion: { emitterNode!.removeFromParent() })
+        self.run(SKAction.wait(forDuration: 2), completion: { emitterNode!.removeFromParent() })
         
     }
     
     
-    override func keyDown(theEvent: NSEvent) {
+    override func keyDown(with theEvent: NSEvent) {
       
         //println(theEvent.keyCode)
         // respond to ship events
@@ -173,7 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
        print("Key: \(theEvent.keyCode)")
     }
    
-    func screenWrap(node:SKSpriteNode)->Void {
+    func screenWrap(_ node:SKSpriteNode)->Void {
         
         // wrap if object exits screen
         if node.position.x < 0 {
@@ -189,7 +189,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
   
     
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
         
         for s in ship {
